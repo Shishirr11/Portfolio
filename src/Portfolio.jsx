@@ -41,7 +41,7 @@ const DATA = {
 I think in flows. Whether it's designing how data moves or how it's understood and stored. Great work starts with great values. I lead with respect, integrity, and the discipline in every situation. My father taught me something simple that stuck: treat every person with the dignity they deserve.
 Currently sharpening my craft at Georgia State University, always building, always learning (Graduating May 2026)`,
 
-  ps: `I'm sorry if the model laptop screen  is offset in your mobile, its mostly because of your browsers Math calculations and version. Try this in a desktop browser for better experience (learnt this from Bruno's-ThreeJs, awesome guy).`,
+  ps: `The 3D laptop screen might look a little wonky or out of shape on mobile that's because of your browser doing questionable math, not me (haven't figured out how to teach the correct math to it yet 😁) . Desktop is where it actually works good. Built this with Bruno Simon's ThreeJS Journey, one of the coolest things  I've learned recently. Try it out !!.`,
 
   projects: [
     {
@@ -329,8 +329,38 @@ function Tag({ children, small }) {
     </span>
   )
 }
+function PsPopup({ onClose }) {
+  return (
+    <div style={{
+      position: 'fixed', inset: 0, zIndex: 300,
+      background: 'rgba(0,0,0,0.35)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      padding: '24px',
+    }} onClick={onClose}>
+      <div onClick={e => e.stopPropagation()} style={{
+        background: T.surface, borderRadius: T.radiusLg,
+        border: `0.5px solid ${T.border}`,
+        padding: '28px 24px 22px',
+        maxWidth: '380px', width: '100%',
+        boxShadow: '0 12px 48px rgba(0,0,0,0.14)',
+        textAlign: 'center',
+      }}>
+        <div style={{ fontSize: '22px', marginBottom: '10px' }}>👋</div>
+        <div style={{ fontSize: '13px', fontWeight: 700, color: T.hint, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '10px' }}>ps;</div>
+        <p style={{ fontSize: '13px', color: T.muted, lineHeight: 1.75, margin: '0 0 20px', fontStyle: 'italic' }}>
+          {DATA.ps}
+        </p>
+        <button onClick={onClose} style={{
+          padding: '9px 24px', background: T.accent,
+          color: '#fff', border: 'none', borderRadius: T.radiusSm,
+          fontSize: '13px', fontWeight: 700, cursor: 'pointer',
+        }}>Got it</button>
+      </div>
+    </div>
+  )
+}
 
-function About({ goTo }) {
+function About({ goTo, onOpenPs }) {
   return (
     <div className="portfolio-scroll" style={{
       width: '100%', height: '100%',
@@ -398,13 +428,18 @@ function About({ goTo }) {
         ))}
       </div>
 
-      <div style={{
-        position: 'absolute', bottom: '18px',
-        fontSize: '11px', color: T.hint, fontStyle: 'italic',
-        maxWidth: '520px', textAlign: 'center', lineHeight: 1.6, padding: '0 2px',
-      }}>
-        ps; {DATA.ps}
-      </div>
+      <button onClick={onOpenPs} style={{
+        marginTop: '8px', marginBottom: '28px',
+        background: 'none', border: `0.5px solid ${T.border}`,
+        borderRadius: T.radiusSm, padding: '7px 18px',
+        fontSize: '12px', color: T.hint, cursor: 'pointer',
+        fontStyle: 'italic', fontFamily: 'inherit',
+        transition: 'border-color 0.15s, color 0.15s',
+      }}
+        onMouseEnter={e => { e.currentTarget.style.borderColor = T.borderMd; e.currentTarget.style.color = T.muted }}
+        onMouseLeave={e => { e.currentTarget.style.borderColor = T.border; e.currentTarget.style.color = T.hint }}
+      >ps; a note from me 💬</button>
+
     </div>
   )
 }
@@ -945,6 +980,7 @@ export default function Portfolio({ fullscreen, onClose, isZoomed = false }) {
   const [activeIdx, setActiveIdx]     = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const [animKey, setAnimKey]         = useState(0)
+  const [psOpen, setPsOpen]           = useState(true)
 
   const goTo = useCallback((nextIdx) => {
     if (isAnimating || nextIdx === activeIdx || nextIdx < 0 || nextIdx >= NAV.length) return
@@ -1069,7 +1105,7 @@ export default function Portfolio({ fullscreen, onClose, isZoomed = false }) {
             position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column',
           }}>
             {activeIdx === 0
-              ? <ActiveSection goTo={goTo} />
+                ? <ActiveSection goTo={goTo} onOpenPs={() => setPsOpen(true)} />
               : <ActiveSection />
             }
           </div>
@@ -1104,6 +1140,7 @@ export default function Portfolio({ fullscreen, onClose, isZoomed = false }) {
 
       </div>
     </div>
+    {psOpen && <PsPopup onClose={() => setPsOpen(false)} />}
     </ZoomedCtx.Provider>
   )
 }
