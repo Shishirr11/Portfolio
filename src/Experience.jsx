@@ -199,7 +199,7 @@ export default function Experience({ onFullscreen }) {
         )}
         <PresentationControls
             global rotation={[0.13, 0.1, 0]} damping={0.4}
-            azimuth={isMobile ? [-1.5, 1] : [-1.5, 1]}
+            azimuth={isMobile ? [-1.5, 1.5] : [-1.5, 1]}
             config={{ mass: 2, tension: 400 }} 
             snap={isMobile ? false : true}
             enabled={phase === 'idle'}
