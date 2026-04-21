@@ -294,7 +294,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
 
 function SectionWrapper({ children, style = {} }) {
   return (
-    <div style={{
+  <div className="portfolio-scroll" style={{
       width: '100%', height: '100%',
       display: 'flex', flexDirection: 'column',
       padding: '36px 52px 28px',
@@ -332,7 +332,7 @@ function Tag({ children, small }) {
 
 function About({ goTo }) {
   return (
-    <div style={{
+    <div className="portfolio-scroll" style={{
       width: '100%', height: '100%',
       display: 'flex', flexDirection: 'column',
       alignItems: 'center', justifyContent: 'flex-start',
@@ -970,8 +970,9 @@ export default function Portfolio({ fullscreen, onClose, isZoomed = false }) {
   return (
     <ZoomedCtx.Provider value={isZoomed}>
     <div style={{
-      width: '100%', height: '100%',
-      minHeight: fullscreen ? '100vh' : undefined,
+      width: '100%',
+      height: fullscreen ? '100dvh' : '100%',
+      minHeight: fullscreen ? '100dvh' : undefined,
       background: T.bg,
       fontFamily: "'SF Pro Display','Helvetica Neue','Segoe UI',system-ui,sans-serif",
       color: T.text, display: 'flex', flexDirection: 'column', overflow: 'hidden',
@@ -986,6 +987,7 @@ export default function Portfolio({ fullscreen, onClose, isZoomed = false }) {
         ::-webkit-scrollbar { width: 3px; }
         ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 3px; }
         input:focus, textarea:focus { border-color: rgba(0,0,0,0.3) !important; }
+        .portfolio-scroll { padding-bottom: max(28px, env(safe-area-inset-bottom, 28px)) !important; }
       `}</style>
 
       <div style={{
