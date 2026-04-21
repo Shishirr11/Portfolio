@@ -263,10 +263,22 @@ export default function Experience({ onFullscreen }) {
                 >
                     Hey, Nice to{'\n'}see you here.
                 </Text>
+                {isMobile && (
+    <Text font="./bangers-v20-latin-regular.woff"
+        fontSize={0.18}
+        position={[1.5, -0.1, 0.5]}
+        rotation-y={-1.25}
+        maxWidth={3}
+        color="#888888"
+        textAlign="left"
+    >
+        * 3D Rendering works best{'\n'}on desktop browsers
+    </Text>
+)}
 
                 {screenReady && (
                     <Html
-                        position={isMobile ? [1.5, 0.1, 0.5] : [2, 0.1, 0.75]}
+                        position={isMobile ? [1.5, 1.2, 0.5] : [2, 0.1, 0.75]}
                         rotation-y={-1.25}
                     >
                         <button onClick={onFullscreen} style={{
