@@ -278,7 +278,7 @@ export default function Experience({ onFullscreen }) {
 
                 {screenReady && (
                     <Html
-                        position={isMobile ? [1.5, 1.2, 0.5] : [2, 0.1, 0.75]}
+                        position={isMobile ? [1, 1.2, -0.3] : [2, 0.1, 0.75]}
                         rotation-y={-1.25}
                     >
                         <button onClick={onFullscreen} style={{
