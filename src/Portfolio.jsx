@@ -347,7 +347,7 @@ function PsPopup({ onClose }) {
       }}>
         <div style={{ fontSize: '22px', marginBottom: '10px' }}>👋</div>
         <div style={{ fontSize: '13px', fontWeight: 700, color: T.hint, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '10px' }}>ps;</div>
-        <p style={{ fontSize: '13px', color: T.muted, lineHeight: 1.75, margin: '0 0 20px', fontStyle: 'italic' }}>
+        <p style={{ fontSize: '13px', color: T.muted, lineHeight: 1.75, margin: '0 0 20px' }}>
           {DATA.ps}
         </p>
         <button onClick={onClose} style={{
@@ -433,7 +433,7 @@ function About({ goTo, onOpenPs }) {
         background: 'none', border: `0.5px solid ${T.border}`,
         borderRadius: T.radiusSm, padding: '7px 18px',
         fontSize: '12px', color: T.hint, cursor: 'pointer',
-        fontStyle: 'italic', fontFamily: 'inherit',
+        fontFamily: 'inherit',
         transition: 'border-color 0.15s, color 0.15s',
       }}
         onMouseEnter={e => { e.currentTarget.style.borderColor = T.borderMd; e.currentTarget.style.color = T.muted }}
