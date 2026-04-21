@@ -980,7 +980,15 @@ export default function Portfolio({ fullscreen, onClose, isZoomed = false }) {
   const [activeIdx, setActiveIdx]     = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const [animKey, setAnimKey]         = useState(0)
-  const [psOpen, setPsOpen]           = useState(true)
+  const [psOpen, setPsOpen]           = useState(false)
+  const psShown = useRef(false)
+  
+useEffect(() => {
+  if ((isZoomed || fullscreen) && !psShown.current) {
+    psShown.current = true
+    setPsOpen(true)
+  }
+}, [isZoomed, fullscreen])
 
   const goTo = useCallback((nextIdx) => {
     if (isAnimating || nextIdx === activeIdx || nextIdx < 0 || nextIdx >= NAV.length) return
