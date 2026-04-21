@@ -34,7 +34,8 @@ const DATA = {
   email:     'vallapunenishishir@gmail.com',
   linkedin:  'https://linkedin.com/in/shishir-kumar-vallapuneni',
   github:    'https://github.com/Shishirr11',
-  resumeUrl: 'https://drive.google.com/file/d/1iPIy2IPNK_iPaO2edlIn50H5QoG7_3tf/view?usp=sharing',
+  resumeUrl:     'https://drive.google.com/file/d/1iPIy2IPNK_iPaO2edlIn50H5QoG7_3tf/view?usp=sharing',
+  resumeDownload: 'https://drive.google.com/uc?export=download&id=1iPIy2IPNK_iPaO2edlIn50H5QoG7_3tf',,
 
   bio: `I'm a data engineer and ML enthusiast who finds genuine joy in building systems that turn raw, chaotic data into something clean, meaningful, and fast. Pipelines, models, warehouses. I care about every layer of the stack, and I care about getting it right.
 I think in flows. Whether it's designing how data moves or how it's understood and stored. Great work starts with great values. I lead with respect, integrity, and the discipline in every situation. My father taught me something simple that stuck: treat every person with the dignity they deserve.
@@ -916,7 +917,7 @@ function Contact() {
                 onMouseEnter={e => e.currentTarget.style.background = T.tag}
                 onMouseLeave={e => e.currentTarget.style.background = T.surface}
               >View ↗</a>
-              <a href={DATA.resumeUrl} download style={{
+              <a href={DATA.resumeDownload} target="_blank" rel="noreferrer" style={{
                 padding: '11px 20px', background: T.accent,
                 borderRadius: T.radiusSm, fontSize: '13px', fontWeight: 700,
                 color: '#fff', textDecoration: 'none',
