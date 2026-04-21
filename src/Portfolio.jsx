@@ -41,7 +41,7 @@ const DATA = {
 I think in flows. Whether it's designing how data moves or how it's understood and stored. Great work starts with great values. I lead with respect, integrity, and the discipline in every situation. My father taught me something simple that stuck: treat every person with the dignity they deserve.
 Currently sharpening my craft at Georgia State University, always building, always learning (Graduating May 2026)`,
 
-  ps: `The Macbook scene and animation isn't made with AI, Its ThreeJs a framework and its actually interesting (learnt it from Bruno simon - awesome guy) try it out whenever you have some free time.`,
+  ps: `I'm sorry if the model laptop screen  is offset in your mobile, it mostly because of your browsers Math calculations and version. Try this in a desktop browser for better experience (learnt this from Bruno's-ThreeJs, awesome guy).`,
 
   projects: [
     {
