@@ -2,16 +2,16 @@ import { useState, useRef, useEffect, useCallback, createContext, useContext } f
 const ZoomedCtx = createContext(false)
 
 const T = {
-  bg:       '#f7f6f3',
+  bg:       '#ffffff',
   surface:  '#ffffff',
   border:   'rgba(0,0,0,0.08)',
   borderMd: 'rgba(0,0,0,0.13)',
-  text:     '#111111',
-  muted:    '#6b6b6b',
-  hint:     '#aaaaaa',
+  text:     '#000000',
+  muted:    '#333333',
+  hint:     '#555555',
   accent:   '#1a1a1a',
   tag:      '#f0efec',
-  tagText:  '#444444',
+  tagText:  '#111111',
   radius:   '12px',
   radiusSm: '8px',
   radiusLg: '20px',
@@ -29,35 +29,37 @@ const NAV = [
 
 const DATA = {
   name:      'Shishir Kumar Vallapuneni',
-  title:     'Data Engineer & ML Engineer',
+  title:     'Data & ML Engineer',
   location:  'Atlanta, GA',
   email:     'vallapunenishishir@gmail.com',
   linkedin:  'https://linkedin.com/in/shishir-kumar-vallapuneni',
   github:    'https://github.com/Shishirr11',
-  resumeUrl: 'https://drive.google.com/file/d/1iPIy2IPNK_iPaO2edlIn50H5QoG7_3tf/view?usp=sharing',
+  resumeUrl:      'https://drive.google.com/file/d/1izMTCVTKsXGKzBBz0nUz2J27vm5NQEbX/view?usp=sharing',
+  resumeDownload: 'https://drive.google.com/uc?export=download&id=1izMTCVTKsXGKzBBz0nUz2J27vm5NQEbX',
+  Blog : 'https://shishirr11.github.io/Blog-page/',
 
-  bio: `I'm a data engineer and ML enthusiast who finds genuine joy in building systems that turn raw, chaotic data into something clean, meaningful, and fast. Pipelines, models, warehouses. I care about every layer of the stack, and I care about getting it right.
-I think in flows. Whether it's designing how data moves or how it's understood and stored. Great work starts with great values. I lead with respect, integrity, and the discipline in every situation. My father taught me something simple that stuck: treat every person with the dignity they deserve.
-Currently sharpening my craft at Georgia State University, always building, always learning (Graduating May 2026)`,
+  bio:`I'm a data and ML enthusiast who likes to look at it like detective who gets a thrill solving massive puzzles. The messy datasets, broken pipelines, or tangled models, I know they are boring from the top! but just dig a little deeper under the hood you will definitely start loving it, guaranteed.
+I treat coding as a daily task like cooking. Whether it is brainstorming architecture or fixing a stubborn query look at like fixing the amount of salt you need in the dish using code. Brilliant tech demands simple people. I always bring energy, kindness, and humor to the table. My first mentor taught me a golden rule I never forgot: Treat every with the respect they deserve and make every place a better one before you leave be it a codebase or anything else!
+Keep exploring and Keep building.`,
 
-  ps: `The Macbook scene and animation isn't made with AI, Its ThreeJs a framework and its actually interesting (learnt it from Bruno simon - awesome guy) try it out whenever you have some free time.`,
+  ps: `The 3D laptop screen might look a little wonky or out of shape on mobile that's because of your browser doing questionable math, not me (haven't figured out how to teach the correct math to it yet 😁) . Desktop is where it actually works good. Built this with Bruno Simon's ThreeJS Journey, one of the coolest things  I've learned recently. Try it out !!.`,
 
   projects: [
     {
       id: 1,
-      title: 'FailSight — Founders Intelligence',
+      title: 'FailSight: Founders Intelligence',
       desc: 'Aggregates 2,767 failed startups + 30,000+ live opportunities : Grants.gov, SBIR, NSF, OpenAlex into a DuckDB lakehouse. Two-stage TF-IDF and 768-dim semantic search. AI-powered idea validator and risk score. (The number of records in the live link are cut down due to free - tier hosting limits, will figure it out soon)',
       tags: ['Python', 'FastAPI', 'DuckDB', 'React', 'TF-IDF', 'sentence-transformers', 'Groq', 'Tailwind'],
-      live: 'https://fail-sight.vercel.app/',
+      live: 'https://fail-sight.vercel.app',
       github: 'https://github.com/Shishir11/Fail-sight',
       preview: 'https://opengraph.githubassets.com/Shishirr11',
     },
         {
       id: 2,
-      title: 'WeCode — Collaborative Coding',
+      title: 'WeCode: Collaborative Coding',
       desc: 'Real-time LeetCode practice for groups. Monaco editor, live room presence, in-room chat, group voting on problem sets, and code execution via each user\'s own LeetCode session. Node.js + Socket.io backend with Redis persistence.',
       tags: ['Node.js', 'TypeScript', 'Socket.io', 'React', 'Redis', 'Monaco Editor'],
-      live: 'https://we-code-dh8m2r7mk-shishirr11s-projects.vercel.app',
+      live: 'https://we-code-tau.vercel.app',
       github: 'https://github.com/Shishirr11/We-Code',
       preview: 'https://opengraph.githubassets.com/Shishirr11',
     },
@@ -90,7 +92,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
     },
     {
       id: 6,
-      title: 'Image Stitching — Global, APAP & KR',
+      title: 'Image Stitching: Global, APAP & KR',
       desc: 'Panorama maker for two overlapping photos. SIFT/ORB detection, ratio-test filtering, RANSAC homography, then three parallel warp strategies: global (one H matrix), APAP (locally adaptive warp), and a custom KR pipeline. Three blended outputs for comparison.',
       tags: ['Python', 'OpenCV', 'NumPy', 'SciPy', 'SIFT', 'RANSAC', 'Homography'],
       live: null,
@@ -108,7 +110,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
     },
     {
       id: 8,
-      title: 'Tweet Sentiment — BERT vs RoBERTa',
+      title: 'Tweet Sentiment: BERT vs RoBERTa',
       desc: 'Compares BERT and RoBERTa on 41K COVID-19 tweets collapsed into 3 sentiment classes. Pipeline includes emoji/URL stripping, hashtag cleaning, and RandomOverSampler balancing. Both models fine-tuned for 4 epochs with full F1 evaluation.',
       tags: ['Python', 'TensorFlow', 'HuggingFace', 'BERT', 'RoBERTa', 'NLP', 'scikit-learn'],
       live: null,
@@ -119,14 +121,23 @@ Currently sharpening my craft at Georgia State University, always building, alwa
   ],
 
   timeline: [
-    {
+{
       id: 'e1', type: 'job',
-      year: 'Jan 2025 — Present',
+      year: 'Jan 2025 — May 2026',
       title: 'Teaching & Research Associate',
       org: 'Georgia State University',
       location: 'Atlanta, GA',
-      description: 'As a Graduate Research & Teaching Assistant at Georgia State University, I run hands-on lab sessions in Java, C, SQL, and shell scripting while mentoring 90+ students through capstone projects. Architected a Python CV pipeline using PyTorch, YOLOv8, and TrackNet processing 10TB+ video data with 34% improvement in player/ball tracking accuracy towards the research in Sports Analytics while handling everything from data collection and labeling to cleaning, model evaluation, and visual reporting of movement patterns. Engineered 2D court projection solutions reducing positional errors by 23% across 100+ test cases.',
+      description: 'I stepped into a dual role: guiding 90+ students through the logic of Java and SQL, and diving deep into sports analytics. I wanted to see how well machines could track fast-moving games. I built an end-to-end computer vision pipeline from scratch using PyTorch and YOLOv8, crunching over 10TB of video data. By cleaning the data and tuning the models, I boosted player and ball tracking accuracy by 34%. I even engineered a 2D court projection system that mapped movements to a flat plane, slashing positional errors by 23%. It was a true journey from raw, messy video frames to clean, actionable sports insights.',
       skills: ['PyTorch', 'YOLOv8', 'TrackNet', 'Java', 'SQL', 'Python'],
+    },
+    {
+      id: 'e1_5', type: 'job',
+      year: 'Jul 2023 — Jun 2024',
+      title: 'Full Stack Developer Intern',
+      org: 'EnglishGurkul',
+      location: 'Remote, India',
+      description: 'I joined EnglishGurkul to make learning fun, taking the lead on building 8+ interactive, game-like Unity modules that kept students engaged on both web and mobile. But a great front-end needs a solid engine. I jumped into the backend, writing Java REST APIs and optimizing queries to cut our response times by 18%. Data was scattered, so I architected robust ETL pipelines and relational schemas to pull course content and user progress from three different sources, achieving 95%+ data consistency. I didn\'t just build new features; I protected the user experience by hunting down and fixing over 20 critical bugs across the UI and backend, reducing content failures by 30%.',
+      skills: ['Java', 'Unity', 'REST APIs', 'ETL', 'SQL', 'Database design and modeling '],
     },
     {
       id: 'e2', type: 'job',
@@ -134,7 +145,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
       title: 'Software Engineering Intern',
       org: 'NowFloats',
       location: 'Hyderabad, India',
-      description: 'Built Java backend services using Spring Boot processing 500K+ daily transactions. Implemented load-balancing and automated data integrity checks via CI/CD pipelines reducing the API latency by 23% and achieving a guaranteed uptime while cutting infra costs 18% annually. Resolved 40+ production UI issues across Boost360 and BizHQ while building ETL pipelines for real-time data ingestion, worked on database schema designs to support clean, scalable data storage. I also optimized SQL queries to improve data retrieval speed and wrote advanced SQL workflows for consistent data capture and persistence',
+      description: 'At NowFloats, I was thrown into a high-stakes environment where our Spring Boot Java backend processed over 500,000 transactions every day. I made it my mission to make the system faster and cheaper. By setting up CI/CD pipelines, load-balancing, and data checks, I managed to cut API latency by 23% and slash infrastructure costs by 18%. But I didn\'t just stay behind the scenes. I built real-time ETL pipelines, redesigned SQL schemas for better storage, and fixed 40+ live UI bugs across two major products. It was a hands-on masterclass in building software that is resilient, fast, and scalable.',
       skills: ['Java', 'Spring Boot', 'SQL', 'CI/CD', 'HTML/CSS', 'JavaScript'],
     },
     {
@@ -143,7 +154,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
       title: 'Research Intern',
       org: 'DigiClinics',
       location: 'Hyderabad, India',
-      description: 'As a Research Assistant, I designed and trained a YOLOv5-based deep learning model for blood cell detection and classification, reaching 87% accuracy by incorporating feature extraction techniques inspired by VGG16 and region proposal refinements from RPN. I built and managed the full data pipeline, from raw collection and expert annotation on a biweekly cycle to structured dataset expansion and quality control ensuring the model always trained on clean, reliable data. To keep the model sharp over time, I applied continual learning strategies including replay buffers, layer freezing, and monthly retraining cycles to adapt to shifting data distributions without sacrificing past performance.',
+      description: 'I took on the challenge of building an AI that could "see" microscopic details. I designed a YOLOv5 deep learning model to detect and classify blood cells, pushing its accuracy to 87% using smart feature extraction. Building the model was only half the battle. I enjoyed the entire data journey collecting raw images, working with experts for biweekly annotations, and ensuring crystal-clear data quality. Because medical data constantly evolves, I didn\'t let the model go stale. I set up a continual learning loop with monthly retraining and layer freezing so the AI could learn new patterns without forgetting the old ones. It taught me how to bring an AI model to life.',
       skills: ['YOLOv5', 'Deep Learning', 'Python', 'Computer Vision', 'VGG16'],
     },
     {
@@ -152,7 +163,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
       title: 'MS, Computer Science',
       org: 'Georgia State University',
       location: 'Atlanta, GA',
-      description: 'CGPA 3.86/4.0. Relevant coursework: Advanced Machine Learning, Cryptography, Computational Intelligence, Data Mining, Cloud Computing. Research focus on sports analytics and computer vision pipelines using YOLOv8 and TrackNet.',
+      description: 'Graduating with a 3.86 CGPA, I immersed myself in Advanced Machine Learning, Data Mining, and Cloud Computing. Beyond the classroom, I found my passion in sports analytics, researching and building computer vision pipelines.',
       skills: ['Machine Learning', 'Data Mining', 'Cloud Computing', 'Cryptography'],
     },
     {
@@ -175,6 +186,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
       desc: 'Data Engineering, Data Pipeline, Lakehouse, Eventstreams, KQL, T-SQL, and Spark-SQL on Microsoft Fabric. Valid until March 2027.',
       color: '#EDF3FF',
       icon: '⊞',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
       credUrl: 'https://learn.microsoft.com/en-us/users/shishirkumarvallapuneni-0896/credentials/7bc0e06a13bc3e46?ref=https%3A%2F%2Fwww.linkedin.com%2F',
     },
     {
@@ -185,6 +197,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
       desc: 'Data governance, data modeling, and the complete Snowflake data engineering certification learning path. Valid until April 2028.',
       color: '#E8F4FD',
       icon: '❄',
+      logo: 'https://cdn.simpleicons.org/snowflake',
       credUrl: 'http://achieve.snowflake.com/707b2b90-96ff-42c0-9d2e-d2fd79afe36b#acc.ToUnYdxC',
     },
     {
@@ -195,6 +208,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
       desc: 'Lakehouse architecture, Delta Lake, Apache Spark, and Databricks platform fundamentals.',
       color: '#FFF0E6',
       icon: '◆',
+      logo: 'https://cdn.simpleicons.org/databricks',
       credUrl: 'https://drive.google.com/file/d/11aQU-1AX0GlY6nwvEDBnxDp86tJY2Zic/view?usp=sharing',
     },
     {
@@ -205,6 +219,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
       desc: 'EDA, data management, stream processing, ETL pipelines, and modern data stack tooling.',
       color: '#F0FDF4',
       icon: '▲',
+      logo: 'https://cdn.simpleicons.org/datacamp',
       credUrl: 'https://drive.google.com/file/d/1mJEVT8-TMe00WctqDTUhTfSsM0EacSZH/view?usp=sharing',
     },
     {
@@ -215,6 +230,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
       desc: 'AI engineering concepts, LLM integration, and applied ML for data scientists.',
       color: '#FEF3E2',
       icon: '◎',
+      logo: 'https://cdn.simpleicons.org/datacamp',
       credUrl: 'https://drive.google.com/file/d/17qBL9pF2S04Ndr2PfeGoZkL8bf499NjZ/view?usp=sharing',
     },
     {
@@ -225,6 +241,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
       desc: 'Apache Airflow, data engineering principles, Python, and data governance.',
       color: '#F1EFE8',
       icon: '⬡',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png',
       credUrl: 'https://drive.google.com/file/d/1iCrrrrypeFCKc7xDJ-wOsLn_Rf9DmX7f/view?usp=sharing',
     },
     {
@@ -235,6 +252,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
       desc: 'Containerization, Docker products, and CI/CD integration.',
       color: '#FFF1F2',
       icon: '⬢',
+      logo: 'https://cdn.simpleicons.org/docker',
       credUrl: 'https://drive.google.com/file/d/1Ty-iif5yUDaSKGbkYJhntLbuUpaLJmgf/view?usp=sharing',
     },
     {
@@ -245,6 +263,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
       desc: 'Supervised Learning, Deep Neural Networks, Dimensionality Reduction, Probabilistic Graphical Models, Sequential Learning, Causal Inference, and Reinforcement Learning. 14% acceptance rate in India.',
       color: '#FEF3E2',
       icon: '★',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg',
       credUrl: 'https://drive.google.com/file/d/1EjiHlRmAhOY5bvW8WFghpU6Z_55xy2w8/view?usp=sharing',
     },
   ],
@@ -254,7 +273,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
     'Data Engineering':   ['Apache Spark', 'PySpark', 'Airflow', 'dbt', 'Kafka', 'Delta Lake', 'ETL/ELT Pipelines', 'Data Modeling', 'Data Warehousing'],
     'Cloud & Platforms':  ['Databricks', 'Snowflake', 'AWS S3', 'Azure Data Factory', 'Microsoft Fabric', 'Docker', 'Kubernetes', 'CI/CD', 'Git'],
     'Databases':          ['MySQL', 'PostgreSQL', 'DuckDB', 'MongoDB', 'Redis', 'BigQuery'],
-    'ML & AI':            ['PyTorch', 'TensorFlow', 'scikit-learn', 'XGBoost', 'LightGBM', 'HuggingFace', 'YOLOv8', 'TrackNet', 'sentence-transformers', 'MLflow'],
+    'Machine Learning':            ['PyTorch', 'TensorFlow', 'scikit-learn', 'XGBoost', 'LightGBM', 'HuggingFace', 'YOLOv8', 'TrackNet', 'sentence-transformers'],
     'Analytics & BI':     ['Tableau', 'Power BI', 'Pandas', 'NumPy', 'Matplotlib', 'Excel'],
     'Web & APIs':         ['React', 'FastAPI', 'Spring Boot', 'REST APIs', 'Node.js', 'Socket.io', 'Three.js', 'Vite'],
   },
@@ -293,7 +312,7 @@ Currently sharpening my craft at Georgia State University, always building, alwa
 
 function SectionWrapper({ children, style = {} }) {
   return (
-    <div style={{
+  <div className="portfolio-scroll" style={{
       width: '100%', height: '100%',
       display: 'flex', flexDirection: 'column',
       padding: '36px 52px 28px',
@@ -328,10 +347,40 @@ function Tag({ children, small }) {
     </span>
   )
 }
-
-function About({ goTo }) {
+function PsPopup({ onClose }) {
   return (
     <div style={{
+      position: 'fixed', inset: 0, zIndex: 300,
+      background: 'rgba(0,0,0,0.35)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      padding: '24px',
+    }} onClick={onClose}>
+      <div onClick={e => e.stopPropagation()} style={{
+        background: T.surface, borderRadius: T.radiusLg,
+        border: `0.5px solid ${T.border}`,
+        padding: '28px 24px 22px',
+        maxWidth: '380px', width: '100%',
+        boxShadow: '0 12px 48px rgba(0,0,0,0.14)',
+        textAlign: 'center',
+      }}>
+        <div style={{ fontSize: '22px', marginBottom: '10px' }}>👋</div>
+        <div style={{ fontSize: '13px', fontWeight: 700, color: T.hint, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '10px',fontFamily: "'Roboto', sans-serif" }}>ps;</div>
+        <p style={{ fontSize: '13px', color: T.muted, lineHeight: 1.75, margin: '0 0 20px', fontFamily: "'Roboto', sans-serif"}}>
+          {DATA.ps}
+        </p>
+        <button onClick={onClose} style={{
+          padding: '9px 24px', background: T.accent,
+          color: '#fff', border: 'none', borderRadius: T.radiusSm,
+          fontSize: '13px', fontWeight: 700, cursor: 'pointer',
+        }}>Got it</button>
+      </div>
+    </div>
+  )
+}
+
+function About({ goTo, onOpenPs }) {
+  return (
+    <div className="portfolio-scroll" style={{
       width: '100%', height: '100%',
       display: 'flex', flexDirection: 'column',
       alignItems: 'center', justifyContent: 'flex-start',
@@ -346,7 +395,7 @@ function About({ goTo }) {
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         fontSize: '32px', color: T.hint,
       }}>
-        <img src="/Profile.jpeg" alt="Shishir"
+        <img src="/Profile.JPG" alt="Shishir"
           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           onError={e => { e.target.style.display = 'none' }}
         />
@@ -364,10 +413,10 @@ function About({ goTo }) {
         {DATA.title}
       </p>
       <p style={{
-        fontSize: '13px', color: T.hint, margin: '0 0 18px', textAlign: 'center',
+        fontSize: '13px', color: T.hint, margin: '0 0 14px', textAlign: 'center',
         letterSpacing: '0.3px',
       }}>
-        Georgia State University · Atlanta, GA
+        GSU · Atlanta, GA
       </p>
 
       <p style={{
@@ -380,9 +429,9 @@ function About({ goTo }) {
 
       <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '42px' }}>
         {[
-          { label: 'LinkedIn ↗', url: DATA.linkedin },
-          { label: 'GitHub ↗',   url: DATA.github },
-          { label: 'Resume ↗',   url: DATA.resumeUrl },
+          { label: 'LinkedIn ', url: DATA.linkedin },
+          { label: 'Blog ',   url: DATA.Blog },
+          { label: 'Resume ',   url: DATA.resumeUrl },
         ].map(({ label, url }) => (
           <a key={label} href={url} target="_blank" rel="noreferrer" style={{
             padding: '10px 22px', borderRadius: T.radiusSm,
@@ -393,17 +442,22 @@ function About({ goTo }) {
           }}
             onMouseEnter={e => { e.currentTarget.style.background = T.tag; e.currentTarget.style.borderColor = T.accent }}
             onMouseLeave={e => { e.currentTarget.style.background = T.surface; e.currentTarget.style.borderColor = T.borderMd }}
-          >{label}</a>
+          >{label}<span style={{ fontFamily: 'system-ui, Arial, sans-serif' }}>↗</span></a>
         ))}
       </div>
 
-      <div style={{
-        position: 'absolute', bottom: '18px',
-        fontSize: '11px', color: T.hint, fontStyle: 'italic',
-        maxWidth: '520px', textAlign: 'center', lineHeight: 1.6, padding: '0 2px',
-      }}>
-        ps; {DATA.ps}
-      </div>
+      <button onClick={onOpenPs} style={{
+        marginTop: '8px', marginBottom: '28px',
+        background: 'none', border: `0.5px solid ${T.border}`,
+        borderRadius: T.radiusSm, padding: '7px 18px',
+        fontSize: '12px', color: T.hint, cursor: 'pointer',
+        fontFamily: "'Roboto', sans-serif",
+        transition: 'border-color 0.15s, color 0.15s',
+      }}
+        onMouseEnter={e => { e.currentTarget.style.borderColor = T.borderMd; e.currentTarget.style.color = T.muted }}
+        onMouseLeave={e => { e.currentTarget.style.borderColor = T.border; e.currentTarget.style.color = T.hint }}
+      >ps; a note from me 💬</button>
+
     </div>
   )
 }
@@ -455,7 +509,7 @@ function ProjectCard({ p }) {
     cursor: 'pointer'
   }}
 >
-  ↗ Live
+  Live <span style={{ fontFamily: 'system-ui, Arial, sans-serif' }}>↗</span>
 </a>
           )}
           {p.github && (
@@ -477,7 +531,7 @@ function ProjectCard({ p }) {
     cursor: 'pointer'
   }}
 >
-  ⌥ GitHub
+GitHub <span style={{ fontFamily: 'system-ui, Arial, sans-serif' }}>⌥ </span>
 </a>
           )}
           
@@ -649,11 +703,17 @@ function CertModal({ cert, onClose }) {
         padding: '28px', maxWidth: '400px', width: '100%',
         boxShadow: '0 12px 48px rgba(0,0,0,0.14)', textAlign: 'center',
       }}>
-        <div style={{
+<div style={{
           width: '100px', height: '100px', borderRadius: '13px',
           background: cert.color, display: 'flex', alignItems: 'center',
           justifyContent: 'center', fontSize: '22px', margin: '0 auto 12px',
-        }}>{cert.icon}</div>
+        }}>
+          {cert.logo ? (
+            <img src={cert.logo} alt={cert.issuer} style={{ maxWidth: '65%', maxHeight: '65%', objectFit: 'contain' }} />
+          ) : (
+            cert.icon
+          )}
+        </div>
         <div style={{ fontSize: '15px', fontWeight: 700, color: T.text, marginBottom: '3px', lineHeight: 1.4 }}>{cert.title}</div>
         <div style={{ fontSize: '11px', color: T.muted, marginBottom: '12px' }}>{cert.issuer} · {cert.year}</div>
         <p style={{ fontSize: '12px', color: T.muted, lineHeight: 1.7, margin: '0 0 18px' }}>{cert.desc}</p>
@@ -661,7 +721,7 @@ function CertModal({ cert, onClose }) {
           display: 'inline-block', padding: '9px 20px',
           background: T.accent, color: '#fff', borderRadius: T.radiusSm,
           fontSize: '11px', fontWeight: 700, textDecoration: 'none',
-        }}>View Credential ↗</a>
+        }}>View Credential <span style={{ fontFamily: 'system-ui, Arial, sans-serif' }}>↗</span></a>
         <button onClick={onClose} style={{
           display: 'block', margin: '12px auto 0', background: 'none',
           border: 'none', fontSize: '11px', color: T.hint, cursor: 'pointer',
@@ -696,7 +756,13 @@ function Certifications() {
               width: '120px', height: '100px', borderRadius: '10px',
               background: c.color, display: 'flex', alignItems: 'center',
               justifyContent: 'center', fontSize: '18px',
-            }}>{c.icon}</div>
+            }}>
+              {c.logo ? (
+                <img src={c.logo} alt={c.issuer} style={{ maxWidth: '60%', maxHeight: '60%', objectFit: 'contain' }} />
+              ) : (
+                c.icon
+              )}
+            </div>
             <div style={{ fontSize: '11px', fontWeight: 700, color: T.text, lineHeight: 1.35 }}>{c.title}</div>
             <div style={{ fontSize: '10px', color: T.muted }}>{c.issuer} · {c.year}</div>
           </div>
@@ -709,7 +775,7 @@ function Certifications() {
 }
 
 function Skills() {
-  const colors = ['#1a1a1a', '#185FA5', '#2d7a4f', '#7a3d2d', '#5a2d7a', '#0F6E56', '#993C1D']
+  const colors = ['#1a1a1a']
   return (
     <SectionWrapper>
       <SectionLabel>Skills</SectionLabel>
@@ -725,7 +791,7 @@ function Skills() {
                 <span key={skill} style={{
                   padding: '5px 12px', background: T.surface,
                   border: `0.5px solid ${T.borderMd}`, borderRadius: '100px',
-                  fontSize: '14px', fontWeight: 500, color: T.text,
+                  fontSize: '14px', fontWeight: 500, color: '#555555',
                   cursor: 'default', transition: 'all 0.15s',
                 }}
                   onMouseEnter={e => { e.target.style.background = T.accent; e.target.style.color = '#fff'; e.target.style.borderColor = T.accent }}
@@ -771,7 +837,7 @@ function DashCard({ d }) {
         <a href={d.url} target="_blank" rel="noreferrer" style={{
           fontSize: '11px', fontWeight: 700, color: T.accent, textDecoration: 'none',
           marginTop: '8px', paddingTop: '9px', borderTop: `0.5px solid ${T.border}`,
-        }}>View on Tableau Public ↗</a>
+        }}>View on Tableau Public <span style={{ fontFamily: 'system-ui, Arial, sans-serif' }}>↗</span></a>
       </div>
     </div>
   )
@@ -875,7 +941,7 @@ function Contact() {
                 transition: 'background 0.2s',
               }}
             >
-              {status === 'idle' ? 'Send Message ↗' : status === 'sending' ? 'Sending...' : status === 'sent' ? '✓ Message sent!' : 'Error — click to retry'}
+             {status === 'idle' ? <>Send Message <span style={{ fontFamily: 'system-ui, Arial, sans-serif' }}>↗</span></> : status === 'sending' ? 'Sending...' : status === 'sent' ? '✓ Message sent!' : 'Error — click to retry'}
             </button>
           </div>
         </div>
@@ -900,7 +966,7 @@ function Contact() {
                 }}
                   onMouseEnter={e => e.currentTarget.style.background = T.tag}
                   onMouseLeave={e => e.currentTarget.style.background = T.surface}
-                >{label} ↗</a>
+                >{label} <span style={{ fontFamily: 'system-ui, Arial, sans-serif' }}>↗</span></a>
               ))}
             </div>
           </div>
@@ -915,12 +981,12 @@ function Contact() {
               }}
                 onMouseEnter={e => e.currentTarget.style.background = T.tag}
                 onMouseLeave={e => e.currentTarget.style.background = T.surface}
-              >View ↗</a>
-              <a href={DATA.resumeUrl} download style={{
+              >View <span style={{ fontFamily: 'system-ui, Arial, sans-serif' }}>↗</span></a>
+              <a href={DATA.resumeDownload} target="_blank" rel="noreferrer" style={{
                 padding: '11px 20px', background: T.accent,
                 borderRadius: T.radiusSm, fontSize: '13px', fontWeight: 700,
                 color: '#fff', textDecoration: 'none',
-              }}>Download ↓</a>
+              }}>Download <span style={{ fontFamily: 'system-ui, Arial, sans-serif' }}>↓</span></a>
             </div>
           </div>
         </div>
@@ -944,6 +1010,15 @@ export default function Portfolio({ fullscreen, onClose, isZoomed = false }) {
   const [activeIdx, setActiveIdx]     = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const [animKey, setAnimKey]         = useState(0)
+  const [psOpen, setPsOpen]           = useState(false)
+  const psShown = useRef(false)
+  
+useEffect(() => {
+  if ((isZoomed || fullscreen) && !psShown.current) {
+    psShown.current = true
+    setPsOpen(true)
+  }
+}, [isZoomed, fullscreen])
 
   const goTo = useCallback((nextIdx) => {
     if (isAnimating || nextIdx === activeIdx || nextIdx < 0 || nextIdx >= NAV.length) return
@@ -969,13 +1044,16 @@ export default function Portfolio({ fullscreen, onClose, isZoomed = false }) {
   return (
     <ZoomedCtx.Provider value={isZoomed}>
     <div style={{
-      width: '100%', height: '100%',
-      minHeight: fullscreen ? '100vh' : undefined,
+      width: '100%',
+      height: fullscreen ? '100dvh' : '100%',
+      minHeight: fullscreen ? '100dvh' : undefined,
       background: T.bg,
-      fontFamily: "'SF Pro Display','Helvetica Neue','Segoe UI',system-ui,sans-serif",
+      fontFamily: "'Roboto', sans-serif",
       color: T.text, display: 'flex', flexDirection: 'column', overflow: 'hidden',
     }}>
-      <style>{`
+<style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
         @keyframes slideIn {
           from { opacity: 0; }
           to   { opacity: 1; }
@@ -985,6 +1063,7 @@ export default function Portfolio({ fullscreen, onClose, isZoomed = false }) {
         ::-webkit-scrollbar { width: 3px; }
         ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 3px; }
         input:focus, textarea:focus { border-color: rgba(0,0,0,0.3) !important; }
+        .portfolio-scroll { padding-bottom: max(28px, env(safe-area-inset-bottom, 28px)) !important; }
       `}</style>
 
       <div style={{
@@ -1066,7 +1145,7 @@ export default function Portfolio({ fullscreen, onClose, isZoomed = false }) {
             position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column',
           }}>
             {activeIdx === 0
-              ? <ActiveSection goTo={goTo} />
+                ? <ActiveSection goTo={goTo} onOpenPs={() => setPsOpen(true)} />
               : <ActiveSection />
             }
           </div>
@@ -1101,6 +1180,7 @@ export default function Portfolio({ fullscreen, onClose, isZoomed = false }) {
 
       </div>
     </div>
+    {psOpen && <PsPopup onClose={() => setPsOpen(false)} />}
     </ZoomedCtx.Provider>
   )
 }
